@@ -7,12 +7,17 @@ var map = new ol.Map({
         constrainResolution: true,
         maxZoom: 28,
         minZoom: 1,
-        
+        extent: [691562.507520, 6418883.455667, 724800.084125, 6442756.599197],
+        projection: new ol.proj.Projection({
+            code: 'EPSG:3857',
+            //extent: [-20026376.390000, -20048966.100000, 20026376.390000, 20048966.100000],
+            units: 'm'
+        })
     })
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([702099.045124, 6425390.572735, 718717.833426, 6437327.144499], map.getSize());
+map.getView().fit([691562.507520, 6418883.455667, 724800.084125, 6442756.599197], map.getSize());
 
 //change cursor
 function pointerOnFeature(evt) {
@@ -497,7 +502,56 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 
 //title
 
+var Title = new ol.control.Control({
+    element: (() => {
+        var titleElement = document.createElement('div');
+        titleElement.className = 'top-left-title ol-control';
+        titleElement.innerHTML = '<h2 class="project-title">Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung</h2>';
+        return titleElement;
+    })(),
+    target: 'top-left-container'
+});
+map.addControl(Title)
+    
 //abstract
+
+var Abstract = new ol.control.Control({
+    element: (() => {
+        var titleElement = document.createElement('div');
+        titleElement.className = 'top-left-abstract ol-control';
+        titleElement.id = 'abstract';
+
+        var linkElement = document.createElement('a');
+
+        if (380 > 240) {
+            linkElement.setAttribute("onmouseenter", "showAbstract()");
+            linkElement.setAttribute("onmouseleave", "hideAbstract()");
+            linkElement.innerHTML = 'i';
+
+            window.hideAbstract = function() {
+                linkElement.classList.add("project-abstract");
+                linkElement.classList.remove("project-abstract-uncollapsed");
+                linkElement.innerHTML = 'i';
+            }
+
+            window.showAbstract = function() {
+                linkElement.classList.remove("project-abstract");
+                linkElement.classList.add("project-abstract-uncollapsed");
+                linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung. Deutlich sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten sowie einige Bombentrichter zu erkennen.<br /><br />Über den Schalter in der oberen rechten Ecke können die einzlenen Layer ein- oder ausgeblendet werden.';
+            }
+
+            hideAbstract();
+        } else {
+            linkElement.classList.add("project-abstract-uncollapsed");
+            linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung. Deutlich sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten sowie einige Bombentrichter zu erkennen.<br /><br />Über den Schalter in der oberen rechten Ecke können die einzlenen Layer ein- oder ausgeblendet werden.';
+        }
+
+        titleElement.appendChild(linkElement);
+        return titleElement;
+    })(),
+    target: 'top-left-container'
+});
+map.addControl(Abstract);
 
 
 //geolocate
@@ -522,11 +576,22 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 //layerswitcher
 
 var layerSwitcher = new ol.control.LayerSwitcher({
-    tipLabel: "Layers",
-    target: 'top-right-container'
-});
+    activationMode: 'click',
+	startActive: true,
+	tipLabel: "Layers",
+    target: 'top-right-container',
+	collapseLabel: '»',
+	collapseTipLabel: 'Close'
+    });
 map.addControl(layerSwitcher);
-    
+if (hasTouchScreen || isSmallScreen) {
+	document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(function() {
+			layerSwitcher.hidePanel();
+		}, 500);
+	});	
+}
+
 
 
 
