@@ -1,5 +1,5 @@
 ol.proj.proj4.register(proj4);
-//ol.proj.get("EPSG:3857").setExtent([677930.873592, 6408052.063596, 750594.122869, 6455798.350656]);
+//ol.proj.get("EPSG:3857").setExtent([676933.867297, 6408777.118595, 744151.385822, 6456523.405654]);
 var wms_layers = [];
 
 
@@ -40,6 +40,22 @@ var lyr_Nusbaum_2 = new ol.layer.Image({
             imageExtent: [704816.275691, 6428551.672222, 710134.063141, 6433827.587330]
         })
     });
+var lyr_Freilingen_modifiziert_3 = new ol.layer.Image({
+        opacity: 1,
+        
+    title: 'Freilingen_modifiziert<br />\
+    <img src="styles/legend/Freilingen_modifiziert_3_0.png" /> 0<br />\
+    <img src="styles/legend/Freilingen_modifiziert_3_1.png" /> 255<br />' ,
+        
+        
+        source: new ol.source.ImageStatic({
+            url: "./layers/Freilingen_modifiziert_3.png",
+            attributions: ' ',
+            projection: 'EPSG:3857',
+            alwaysInRange: true,
+            imageExtent: [702801.519663, 6430088.767486, 706899.824873, 6434878.371726]
+        })
+    });
 
-lyr_Gmaps_0.setVisible(true);lyr_OpenStreetMap_1.setVisible(true);lyr_Nusbaum_2.setVisible(true);
-var layersList = [lyr_Gmaps_0,lyr_OpenStreetMap_1,lyr_Nusbaum_2];
+lyr_Gmaps_0.setVisible(true);lyr_OpenStreetMap_1.setVisible(true);lyr_Nusbaum_2.setVisible(true);lyr_Freilingen_modifiziert_3.setVisible(true);
+var layersList = [lyr_Gmaps_0,lyr_OpenStreetMap_1,lyr_Nusbaum_2,lyr_Freilingen_modifiziert_3];
