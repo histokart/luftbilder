@@ -7,7 +7,7 @@ var map = new ol.Map({
         constrainResolution: true,
         maxZoom: 28,
         minZoom: 1,
-        extent: [691562.507520, 6418883.455667, 724800.084125, 6442756.599197],
+        extent: [677930.873592, 6408052.063596, 750594.122869, 6455798.350656],
         projection: new ol.proj.Projection({
             code: 'EPSG:3857',
             //extent: [-20026376.390000, -20048966.100000, 20026376.390000, 20048966.100000],
@@ -17,7 +17,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([691562.507520, 6418883.455667, 724800.084125, 6442756.599197], map.getSize());
+map.getView().fit([677930.873592, 6408052.063596, 750594.122869, 6455798.350656], map.getSize());
 
 //change cursor
 function pointerOnFeature(evt) {
@@ -506,7 +506,7 @@ var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
         titleElement.className = 'top-left-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung</h2>';
+        titleElement.innerHTML = '<h2 class="project-title">Luftbilder Nusbaum 1944</h2>';
         return titleElement;
     })(),
     target: 'top-left-container'
@@ -523,7 +523,7 @@ var Abstract = new ol.control.Control({
 
         var linkElement = document.createElement('a');
 
-        if (380 > 240) {
+        if (879 > 240) {
             linkElement.setAttribute("onmouseenter", "showAbstract()");
             linkElement.setAttribute("onmouseleave", "hideAbstract()");
             linkElement.innerHTML = 'i';
@@ -537,13 +537,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung. Deutlich sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten sowie einige Bombentrichter zu erkennen.<br /><br />Über den Schalter in der oberen rechten Ecke können die einzlenen Layer ein- oder ausgeblendet werden.';
+                linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung. Die heute in den National Archives in Washington verwahrten Aufnahmen, die vemutlich von der US Air Force stammen, sind im Rahmen der militärischen Aufklärung während der Zurückdrängung der deutschen Ardennenoffensive enstanden. Die Front lag am 27.12.1944 nur noch knapp westlich der deutsch-luxemburgischen Grenze. Deutlich sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten, einige Bombentrichter sowie die Spuren deutscher Militärfahrzeuge im Schnee zu erkennen.<br /><br />Über den blauen Schalter in der rechten oberen Ecke können die einzlenen Luftbilder und Kartenlayer ein- oder ausgeblendet werden. Über +/- bzw. über das Mausrad lässt sich die Darstellung vergrößen bzw. verkleinern.<br /><br />Franz-Josef Ziwes';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung. Deutlich sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten sowie einige Bombentrichter zu erkennen.<br /><br />Über den Schalter in der oberen rechten Ecke können die einzlenen Layer ein- oder ausgeblendet werden.';
+            linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung. Die heute in den National Archives in Washington verwahrten Aufnahmen, die vemutlich von der US Air Force stammen, sind im Rahmen der militärischen Aufklärung während der Zurückdrängung der deutschen Ardennenoffensive enstanden. Die Front lag am 27.12.1944 nur noch knapp westlich der deutsch-luxemburgischen Grenze. Deutlich sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten, einige Bombentrichter sowie die Spuren deutscher Militärfahrzeuge im Schnee zu erkennen.<br /><br />Über den blauen Schalter in der rechten oberen Ecke können die einzlenen Luftbilder und Kartenlayer ein- oder ausgeblendet werden. Über +/- bzw. über das Mausrad lässt sich die Darstellung vergrößen bzw. verkleinern.<br /><br />Franz-Josef Ziwes';
         }
 
         titleElement.appendChild(linkElement);
