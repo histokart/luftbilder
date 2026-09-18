@@ -1,5 +1,5 @@
 ol.proj.proj4.register(proj4);
-//ol.proj.get("EPSG:25832").setExtent([295696.547442, 5522509.904405, 317119.205797, 5540228.752031]);
+//ol.proj.get("EPSG:25832").setExtent([294024.308796, 5523139.980009, 318373.434888, 5540858.827635]);
 var wms_layers = [];
 
 
@@ -72,6 +72,26 @@ var lyr_Freilingen_2_4 = new ol.layer.Image({
             imageExtent: [306244.865017, 5531052.598001, 309728.088979, 5534546.909148]
         })
     });
+var lyr_Stockigt_5 = new ol.layer.Image({
+        opacity: 1,
+        
+    title: 'Stockigt<br />\
+    <img src="styles/legend/Stockigt_5_0.png" /> 0<br />\
+    <img src="styles/legend/Stockigt_5_1.png" /> 255<br />' ,
+        
+        
+        source: new ol.source.ImageStatic({
+            url: "./layers/Stockigt_5.png",
+            attributions: ' ',
+            projection: 'EPSG:25832',
+            alwaysInRange: true,
+            imageExtent: [308242.644945, 5529542.992757, 311727.661111, 5533005.470420]
+        })
+    });
+var group_Luftbilder = new ol.layer.Group({
+                                layers: [lyr_Nusbaum_2,lyr_Freilingen_3,lyr_Freilingen_2_4,lyr_Stockigt_5,],
+                                fold: 'open',
+                                title: 'Luftbilder'});
 
-lyr_Gmaps_0.setVisible(true);lyr_OpenStreetMap_1.setVisible(true);lyr_Nusbaum_2.setVisible(true);lyr_Freilingen_3.setVisible(true);lyr_Freilingen_2_4.setVisible(true);
-var layersList = [lyr_Gmaps_0,lyr_OpenStreetMap_1,lyr_Nusbaum_2,lyr_Freilingen_3,lyr_Freilingen_2_4];
+lyr_Gmaps_0.setVisible(true);lyr_OpenStreetMap_1.setVisible(true);lyr_Nusbaum_2.setVisible(true);lyr_Freilingen_3.setVisible(true);lyr_Freilingen_2_4.setVisible(true);lyr_Stockigt_5.setVisible(true);
+var layersList = [lyr_Gmaps_0,lyr_OpenStreetMap_1,group_Luftbilder];

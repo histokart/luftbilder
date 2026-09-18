@@ -7,7 +7,7 @@ var map = new ol.Map({
         constrainResolution: true,
         maxZoom: 28,
         minZoom: 1,
-        extent: [295696.547442, 5522509.904405, 317119.205797, 5540228.752031],
+        extent: [294024.308796, 5523139.980009, 318373.434888, 5540858.827635],
         projection: new ol.proj.Projection({
             code: 'EPSG:25832',
             //extent: [-20026376.390000, -20048966.100000, 20026376.390000, 20048966.100000],
@@ -17,7 +17,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([295696.547442, 5522509.904405, 317119.205797, 5540228.752031], map.getSize());
+map.getView().fit([294024.308796, 5523139.980009, 318373.434888, 5540858.827635], map.getSize());
 
 //change cursor
 function pointerOnFeature(evt) {
@@ -523,7 +523,7 @@ var Abstract = new ol.control.Control({
 
         var linkElement = document.createElement('a');
 
-        if (912 > 240) {
+        if (913 > 240) {
             linkElement.setAttribute("onmouseenter", "showAbstract()");
             linkElement.setAttribute("onmouseleave", "hideAbstract()");
             linkElement.innerHTML = 'i';
@@ -537,13 +537,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung.<br /><br />Die heute in den National Archives in Washington verwahrten Aufnahmen, die vemutlich von der US Air Force stammen, sind im Rahmen der militärischen Aufklärung während der Zurückdrängung der deutschen Ardennenoffensive enstanden. Die Front lag am 27.12.1944 nur noch knapp westlich der deutsch-luxemburgischen Grenze. Zu erkennen sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten, einige Bombentrichter, deutschen Schützengräben (auf Haslich) sowie Fahrspuren deutscher Militärfahrzeuge im Schnee.<br /><br />Über den blauen Schalter in der rechten oberen Ecke können die einzlenen Luftbilder und Kartenlayer ein- oder ausgeblendet werden. Über +/- bzw. über das Mausrad lässt sich die Darstellung vergrößen bzw. verkleinern.<br /><br />Franz-Josef Ziwes<br />';
+                linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung.<br /><br />Die heute in den National Archives in Washington verwahrten Aufnahmen, die vemutlich von der US Air Force stammen, sind im Rahmen der militärischen Aufklärung während der Zurückdrängung der deutschen Ardennenoffensive enstanden. Die Front lag am 27.12.1944 nur noch knapp westlich der deutsch-luxemburgischen Grenze. Zu erkennen sind die ausgebrannten Häuser ohne Dächer in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten, einige Bombentrichter, deutsche Schützengräben (auf Haslich) sowie Fahrspuren deutscher Militärfahrzeuge im Schnee.<br /><br />Über den blauen Schalter in der rechten oberen Ecke können die einzlenen Luftbilder und Kartenlayer ein- oder ausgeblendet werden. Über +/- bzw. über das Mausrad lässt sich die Darstellung vergrößen bzw. verkleinern.<br /><br />Franz-Josef Ziwes<br />';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung.<br /><br />Die heute in den National Archives in Washington verwahrten Aufnahmen, die vemutlich von der US Air Force stammen, sind im Rahmen der militärischen Aufklärung während der Zurückdrängung der deutschen Ardennenoffensive enstanden. Die Front lag am 27.12.1944 nur noch knapp westlich der deutsch-luxemburgischen Grenze. Zu erkennen sind die ausgebrannten Häuser ohne Dach in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten, einige Bombentrichter, deutschen Schützengräben (auf Haslich) sowie Fahrspuren deutscher Militärfahrzeuge im Schnee.<br /><br />Über den blauen Schalter in der rechten oberen Ecke können die einzlenen Luftbilder und Kartenlayer ein- oder ausgeblendet werden. Über +/- bzw. über das Mausrad lässt sich die Darstellung vergrößen bzw. verkleinern.<br /><br />Franz-Josef Ziwes<br />';
+            linkElement.innerHTML = 'Georeferenzierte Luftbilder der westlichen Alliierten vom 27.12.1944 zu Nusbaum und Umgebung.<br /><br />Die heute in den National Archives in Washington verwahrten Aufnahmen, die vemutlich von der US Air Force stammen, sind im Rahmen der militärischen Aufklärung während der Zurückdrängung der deutschen Ardennenoffensive enstanden. Die Front lag am 27.12.1944 nur noch knapp westlich der deutsch-luxemburgischen Grenze. Zu erkennen sind die ausgebrannten Häuser ohne Dächer in Stockigt, die Einschläge der aus westlicher Richtung (aus Vianden?) abgefeuerten Granaten, einige Bombentrichter, deutsche Schützengräben (auf Haslich) sowie Fahrspuren deutscher Militärfahrzeuge im Schnee.<br /><br />Über den blauen Schalter in der rechten oberen Ecke können die einzlenen Luftbilder und Kartenlayer ein- oder ausgeblendet werden. Über +/- bzw. über das Mausrad lässt sich die Darstellung vergrößen bzw. verkleinern.<br /><br />Franz-Josef Ziwes<br />';
         }
 
         titleElement.appendChild(linkElement);
